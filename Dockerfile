@@ -22,8 +22,15 @@ RUN apt-get update && apt-get install -y \
     git \
     zip \
     unzip \
-    jq \
-  && rm -fr /var/lib/apt/lists/*
+    jq
+
+# install postgres client and pg-activity
+
+RUN apt -y install --no-install-recommends postgresql-client \
+  && apt -y clean \
+  && rm -rf /var/lib/apt/lists/*
+
+RUN pip install pg-activity
 
 # kubectl
 COPY install/get-kubectl /tmp
