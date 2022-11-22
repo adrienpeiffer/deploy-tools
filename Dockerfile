@@ -23,7 +23,8 @@ RUN apt-get update && apt-get install -y \
     zip \
     unzip \
     jq \
-    python3-pip
+    python3-pip \
+    python3-psycopg2
 
 # install postgres client and pg-activity
 
